@@ -16,7 +16,7 @@ function App() {
         'android.permission.READ_PHONE_STATE',
         'android.permission.READ_CALL_LOG',
       ]).then();
-      RNCallRecorder.addPhonesWhiteList(['1234'])
+      // RNCallRecorder.addPhonesWhiteList(['1234'])
     // RNCallRecorder.switchRecordStatus();
 
   }, []);

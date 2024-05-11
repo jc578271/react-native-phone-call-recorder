@@ -1,6 +1,8 @@
 
 package com.kuhulin;
 
+import android.content.IntentFilter;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -24,6 +26,12 @@ public class RNPhoneCallRecorderModule extends ReactContextBaseJavaModule {
     super(reactContext);
     this.reactContext = reactContext;
     this.recordCallModule = new RecordCallModule(reactContext);
+
+    IntentFilter filter = new IntentFilter();
+    filter.addAction("android.intent.action.PHONE_STATE");
+    filter.addAction("android.intent.action.NEW_OUTGOING_CALL");
+
+    reactContext.registerReceiver(this.recordCallModule, filter);
   }
 
   @Override
